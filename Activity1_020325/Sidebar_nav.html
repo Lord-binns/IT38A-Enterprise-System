@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="CSS/Dashboard.css">
+    <script src="JS/dashboard.js" defer></script> 
     <title>Sidebar Navigation</title>
 </head>
 <body>
@@ -12,28 +13,18 @@
         <h2 style="text-align: center;">Menu</h2>
 
         <div class="dropdown">
-            <button class="dropbtn">Dashboard</button>
-            <div class="dropdown-content">
-                <a href="#"> wala pa</a>
-           
+            <button class="dropbtn" onclick="toggleDropdown('reportsDropdown')">Reports</button>
+            <div id="reportsDropdown" class="dropdown-content">
+                <a href="#">Not yet..</a>
             </div>
         </div>
 
         <div class="dropdown">
-            <button class="dropbtn">Reports</button>
-            <div class="dropdown-content">
-                <a href="#">wala pa</a>
-            
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropbtn">Accounts</button>
-            <div class="dropdown-content">
-                <a href="#">Users</a>
+            <button class="dropbtn" onclick="toggleDropdown('accountsDropdown')">Accounts</button>
+            <div id="accountsDropdown" class="dropdown-content">
+                <a href="Users.html">Users</a>
                 <a href="#">Temp Users</a>
                 <a href="#">Total number of users</a>
-             
             </div>
         </div>
 
@@ -43,8 +34,6 @@
         <h1>Welcome to the Dashboard</h1>
         <p>This is the main content area.</p>
     </div>
-
-    <script src="dashboard.js"></script>
 
 </body>
 </html>
