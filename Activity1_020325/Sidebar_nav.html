@@ -5,22 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css">
     <title>Sidebar Navigation</title>
-
 </head>
 <body>
 
     <div class="sidebar">
         <h2 style="text-align: center;">Menu</h2>
-        <a href="#">Dashboard</a>
-        <a href="#">Reports</a>
-        <a href="#">Accounts</a>
-      
+
+        <div class="dropdown">
+            <button class="dropbtn">Dashboard</button>
+            <div class="dropdown-content">
+                <a href="#"> wala pa</a>
+           
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Reports</button>
+            <div class="dropdown-content">
+                <a href="#">wala pa</a>
+            
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Accounts</button>
+            <div class="dropdown-content">
+                <a href="#">Users</a>
+                <a href="#">Temp Users</a>
+                <a href="#">Total number of users</a>
+             
+            </div>
+        </div>
+
     </div>
 
     <div class="main-content">
         <h1>Welcome to the Dashboard</h1>
         <p>This is the main content area.</p>
     </div>
+
+    <script src="dashboard.js"></script>
 
 </body>
 </html>
