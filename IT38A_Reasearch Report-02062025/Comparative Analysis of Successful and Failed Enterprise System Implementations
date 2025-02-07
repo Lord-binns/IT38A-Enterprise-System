@@ -5,12 +5,20 @@
      b.1. company overview (Why the enterprise system was implemented)
         - Starbucks ( Oracle Enterprise Resource planning)
 
-        Starbucks is  a global coffeehouse chain that initiated the  Oracle Enterprise Resource Planning (ERP) to automate its operations and improve supply chain management and the decision-making process. Becuase of the fast expansion of Starbucks worldwide. This created challenges in inventory control with financial functions and also human resource management processeses. To resolve these issues, Starbucks needed an integrated system to provide real-time data that can optimize operational efficiency and also support the growth strategy of the company.
+        Starbucks is  a global coffeehouse chain that initiated the  Oracle Enterprise Resource Planning (ERP)
+         to automate its operations and improve supply chain management and the decision-making process.
+          Becuase of the fast expansion of Starbucks worldwide. This created challenges in inventory control with 
+          financial functions and also human resource management processeses. 
+          To resolve these issues, Starbucks needed an integrated system to provide real-time data that can optimize 
+          operational efficiency and also support the growth strategy of the company.
 
 
      b.2. implementation process
 
-        Starbucks took a step-by-step approach in implementing Oracle ERP. It started with an exhaustive needs assessment and then system customization to meet Starbucks' unique operational requirements. The implementation included significant staff training, pilot testing in some regions, and a phased rollout to all locations. Feedback loops ensured continuous improvement and reduced the disruptions of the transition process.
+        Starbucks took a step-by-step approach in implementing Oracle ERP. It started with an exhaustive needs assessment and
+         then system customization to meet Starbucks' unique operational requirements. The implementation included significant
+          staff training, pilot testing in some regions, and a phased rollout to all locations. Feedback loops ensured
+           continuous improvement and reduced the disruptions of the transition process.
 
 
      b.3. Key success factors
@@ -27,7 +35,10 @@
 
      b.4. outcomes & impact
 
-    The Oracle ERP implementation at Starbucks led to tremendous improvements in the efficiency of its operations, accuracy of data, and speed of decision-making. It streamlined the supply chain process, enhanced financial reporting, and improved inventory management. The system also facilitated better human resource management and contributed to Starbucks' ability to scale its operations globally with agility. 
+    The Oracle ERP implementation at Starbucks led to tremendous improvements in the efficiency of its operations, 
+    accuracy of data, and speed of decision-making. It streamlined the supply chain process, enhanced financial reporting,
+     and improved inventory management. The system also facilitated better human resource management and contributed to
+      Starbucks' ability to scale its operations globally with agility. 
 
 
 
@@ -37,11 +48,15 @@ c. case study 2: Failed Enterprise System Implementation
 
      -Uniwide Sales ()
 
-    Uniwide Sales, Inc., a former top retail chain in the Philippines, attempted to improve its operations through an enterprise resource planning (ERP) system. The objective was to enhance the efficiency of supply chains, inventory management, and overall operations to effectively compete with the retail empires of SM and Robinsons.
+    Uniwide Sales, Inc., a former top retail chain in the Philippines, attempted to improve its operations t
+    hrough an enterprise resource planning (ERP) system. The objective was to enhance the efficiency of supply chains, 
+    inventory management, and overall operations to effectively compete with the retail empires of SM and Robinsons.
 
      c.2. implementation process & challenges
 
-    The implementation of Uniwide's ERP system was not well planned and hasty. System integration was one major problem and lack of strategy was prevalent, so the new system would not usually fit current processes, which disrupted it frequently. Moreover, there was minimal staff training, and resistance to change was widespread in employees.
+    The implementation of Uniwide's ERP system was not well planned and hasty. System integration was one major problem
+     and lack of strategy was prevalent, so the new system would not usually fit current processes, which disrupted 
+     it frequently. Moreover, there was minimal staff training, and resistance to change was widespread in employees.
 
      c.3. Key failure factors
 
@@ -57,7 +72,9 @@ c. case study 2: Failed Enterprise System Implementation
 
      c.4. outcomes & consequences
 
-    uniwide sales dream to upgrade its IT systems wasnt fruitful it led to the collapsed of its ERP implementation and intensified the operational inefficiencies faced by company in its stock managementv its supply chain, and financial performance. It was these failures that eventually led to bankruptcy and, of course, to Uniwide's closure from the retail business.
+    uniwide sales dream to upgrade its IT systems wasnt fruitful it led to the collapsed of its ERP
+     implementation and intensified the operational inefficiencies faced by company in its stock managementv
+      its supply chain, and financial performance. It was these failures that eventually led to bankruptcy and, of course, to Uniwide's closure from the retail business.
 
 
 d. Comparative analysis: create a table for both case study 1 & 2.
@@ -146,3 +163,10 @@ e.3. Future Research Opportunities
 
         Analyze how retail companies in emerging markets can leverage ERP systems for growth.
 
+References :
+
+https://peoplemanagingpeople.com/strategy-operations/3-examples-of-erps/
+
+https://sunrise.co/blog/successful-erp-implementation/
+
+https://link.springer.com/article/10.1023/A:1026591822284
