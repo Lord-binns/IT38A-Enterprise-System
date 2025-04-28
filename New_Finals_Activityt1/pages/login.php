@@ -18,7 +18,7 @@ if (isset($_SESSION['error'])) {
 <body>
     <div class="login-container">
         <div class="image-container">
-            <img src="https://cdna.artstation.com/p/assets/images/images/015/412/288/original/alexandra-vezhnovets-library.gif?1548239266" alt="Registration Image">
+            <img src="ttps://cdna.artstation.com/p/assets/images/images/015/412/288/original/alexandra-vezhnovets-library.gif?1548239266" alt="Registration Image">
         </div>
         <div class="form-container">
             <h2>Login here</h2>
