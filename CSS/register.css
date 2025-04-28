@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    background: url('https://img.freepik.com/premium-photo/cliche-library-library-background_115919-34121.jpg') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the entire container */
+}
+
+.login-container {
+    display: flex;
+    max-width: 900px;  /* Control the max width */
+    width: 100%;
+    height: 500px;  /* Control the height of the form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly opaque background */
+}
+
+.image-container {
+    flex: 1;
+    background-color: #f0f0f0;
+    order: 2; /* Move the image to the right */
+    max-width: 50%; /* Ensure image container doesn't take full width */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-container {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 1; /* Ensure form stays on the left */
+    max-width: 50%; /* Restrict width */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;  /* Make heading smaller */
+}
+
+.input-group {
+    margin-bottom: 10px; /* Reduce margin to make it tighter */
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;  /* Smaller label text */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;  /* Reduced padding for smaller inputs */
+    font-size: 14px; /* Smaller font size */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;  /* Smaller font for paragraph */
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;  /* Allow form to adjust based on content */
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+        max-width: 100%;  /* Allow image to scale fully */
+    }
+
+    .form-container {
+        max-width: 100%;  /* Allow form to take up full width on smaller screens */
+    }
+}
