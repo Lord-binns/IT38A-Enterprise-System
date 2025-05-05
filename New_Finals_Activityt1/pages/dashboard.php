@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Ensure Bootstrap is linked -->
     <link rel="stylesheet" href="../CSS/dashboard.css">
 </head>
 
@@ -46,7 +47,68 @@
   </div>
 </div>
 
+<!-- Card Container -->
+<div class="container card-container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/5f/e9/14/5fe914ff84aeea70d67609587b2ec38c.gif" class="card-img-top" alt="Image 2">
+                <div class="card-body text-center">
+                    <h3 class="card-title"> Sales Report</h3>
+                    <h5 class="card-text"> </h5>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/74/fe/58/74fe58b6918fa081662612578de66dc1.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Bussiness Tips</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/0e/e9/61/0ee961aa770d96ac9d36b22bc28f3e64.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Manage Users</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="  https://i.pinimg.com/originals/d8/b8/4a/d8b84aef92673675ad6ffbd8d582f8b6.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Add new Product</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+      
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/1a/a4/bd/1aa4bd174b9226673c061b01f1b64b1f.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Add new Supplier</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/2d/f3/ed/2df3edaaab82b315c155165a0f00d2ee.gif" class="card-img-top" alt="Image 3">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Create New Invoice</h3>
+                    <h5 class="card-text"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 function toggleSidebar() {
@@ -58,8 +120,6 @@ function toggleSidebar() {
     }
 }
 </script>
-
-
 
 </body>
 </html>
