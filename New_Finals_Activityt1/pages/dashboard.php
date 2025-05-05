@@ -20,12 +20,14 @@
 <!-- Sidebar -->
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">×</a>
-    <a href="../pages/dashboard.php"><i class="fas fa-home"></i> DashBoard</a>
-    <a href="../pages/borrow_page.php"><i class="fas fa-clock"></i> Inventory</a>
-    <a href="../pages/favorites.php"><i class="fas fa-heart"></i> Suppliers</a>
-    <a href="../pages/borrow_page.php"><i class="fas fa-clock"></i> Refunds and Returns</a>
-    <a href="../pages/favorites.php"><i class="fas fa-heart"></i> User Log</a>
-    <a href="../pages/logout.php" onclick="confirmLogout(event)"><i class="fas fa-power-off" style="color: red;"></i> Log out</a>
+    <a href="../pages/dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="../pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
+    <a href="../pages/suppliers.php"><i class="fas fa-truck"></i> Suppliers</a>
+    <a href="../pages/refunds_returns.php"><i class="fas fa-undo"></i> Refunds & Returns</a>
+    <a href="../pages/user_log.php"><i class="fas fa-user-clock"></i> User Log</a>
+    <a href="../pages/logout.php" onclick="confirmLogout(event)">
+        <i class="fas fa-power-off" style="color: red;"></i> Log out
+    </a>
 </div>
 
 <script>
