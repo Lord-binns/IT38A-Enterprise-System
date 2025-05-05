@@ -13,13 +13,15 @@
 }
 
 .sidebar a {
-  padding: 10px 20px;
+  padding: 12px 24px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;           /* Bigger font */
+  font-weight: bold;         /* Bold text */
   color: white;
   display: block;
   transition: 0.2s;
 }
+
 
 .sidebar a:hover {
   background-color: #575757;
