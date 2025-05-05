@@ -66,3 +66,77 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px); /* adjust for top padding or close button */
+  justify-content: space-between;
+}
+
+.sidebar-links {
+  flex-grow: 1;
+}
+
+.sidebar a {
+  padding: 16px 24px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #444;
+}
+
+.logout-link {
+  border-top: 1px solid #444;
+  padding: 16px 24px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #222;
+}
+
+.admin-profile {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.admin-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid white;
+}
+
+.admin-name {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
+
