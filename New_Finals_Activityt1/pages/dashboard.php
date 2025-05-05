@@ -24,7 +24,7 @@
     <div class="sidebar-links">
 
     <div class="admin-profile">
-    <img src="https://static.vecteezy.com/system/resources/previews/012/210/707/non_2x/worker-employee-businessman-avatar-profile-icon-vector.jpg" alt="Admin" class="admin-avatar">
+    <img src="https://i.pinimg.com/736x/4e/ba/de/4ebadeafda17ccd4bb6257b86c9f9c09.jpg" alt="Admin" class="admin-avatar">
     <p class="admin-name">Admin</p>
 </div>
 <hr>
