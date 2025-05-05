@@ -113,10 +113,10 @@
 <script>
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
+    if (sidebar.style.width === "300px") {
         sidebar.style.width = "0";
     } else {
-        sidebar.style.width = "250px";
+        sidebar.style.width = "300px";
     }
 }
 </script>
