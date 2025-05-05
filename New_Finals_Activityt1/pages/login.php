@@ -22,7 +22,7 @@ if (isset($_SESSION['error'])) {
         </div>
         <div class="form-container">
             <h2>Login here</h2>
-            <form action="../process/login_process.php" method="POST">
+            <form action="../process/register_process.php" method="POST">
                 <div class="input-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>

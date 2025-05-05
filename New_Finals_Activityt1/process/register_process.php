@@ -18,7 +18,7 @@ $sql = "INSERT INTO users (first_name, last_name, username, password, role) VALU
 
 if ($conn->query($sql) === TRUE) {
     // Redirect to the login page after successful registration
-    header("Location: ../../pages/login.php");
+    header("Location: ../pages/login.php");
     exit(); // Always call exit after header redirect
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
