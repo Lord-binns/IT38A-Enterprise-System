@@ -47,37 +47,41 @@
   </div>
 </div>
 
-<!-- Dashboard Heading and Highlight Cards -->
+<!-- Dashboard Overview Container -->
 <div class="container mt-4">
+  <div class="card shadow p-4" style="background-color: #f0f0f0; border-radius: 12px;">
     <div class="row align-items-center">
-        <!-- Dashboard Heading -->
-        <div class="col-md-4 mb-3">
-            <h1 style="font-weight: 700; font-size: 2.5rem;">📊 Dashboard</h1>
-            <p style="color: #555;">A quick Data overview of the Inventory</p>
-        </div>
+      
+      <!-- Dashboard Heading -->
+      <div class="col-md-4 mb-3">
+        <h1 style="font-weight: 700; font-size: 2.5rem; color: #333;">📊 Dashboard</h1>
+        <p style="color: #666;">Quick system overview</p>
+      </div>
 
-        <!-- System Status Card -->
-        <div class="col-md-4 mb-3">
-            <div class="card text-white bg-success shadow text-center">
-                <div class="card-body">
-                    <h4 class="card-title">System Status</h4>
-                    <p class="card-text">All systems operational</p>
-                    <i class="fas fa-check-circle fa-2x"></i>
-                </div>
-            </div>
+      <!-- System Status Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-success shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">System Status</h5>
+            <p class="card-text">All systems operational</p>
+            <i class="fas fa-check-circle fa-2x"></i>
+          </div>
         </div>
+      </div>
 
-        <!-- Notifications Card -->
-        <div class="col-md-4 mb-3">
-            <div class="card text-white bg-warning shadow text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Notifications</h4>
-                    <p class="card-text">3 pending supplier updates</p>
-                    <i class="fas fa-bell fa-2x"></i>
-                </div>
-            </div>
+      <!-- Notifications Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-warning shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Notifications</h5>
+            <p class="card-text">3 pending supplier updates</p>
+            <i class="fas fa-bell fa-2x"></i>
+          </div>
         </div>
+      </div>
+
     </div>
+  </div>
 </div>
 
 
