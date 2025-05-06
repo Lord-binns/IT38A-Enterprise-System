@@ -16,28 +16,58 @@ if (isset($_SESSION['error'])) {
     <link rel="stylesheet" href="../CSS/login.css"> <!-- 🔥 Restored CSS link -->
 </head>
 <body>
-    <div class="login-container">
-        <div class="image-container">
-            <img src="ttps://cdna.artstation.com/p/assets/images/images/015/412/288/original/alexandra-vezhnovets-library.gif?1548239266" alt="Registration Image">
+<div class="login-container">
+    <!-- Form goes first -->
+    <div class="form-container">
+    <img src="path/to/logo.png" alt="Logo" class="logo"> <!-- Logo at the top -->
+    <h2>Login</h2>
+    <form action="../process/register_process.php" method="POST">
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
         </div>
-        <div class="form-container">
-            <h2>Login here</h2>
-            <form action="../process/register_process.php" method="POST">
-                <div class="input-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="input-group">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-            <p>Don't have an account? <a href="../pages/register.php">Register here</a></p>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <!-- Hide eye icon initially -->
+                <span class="eye-icon" onclick="togglePassword()">&#128065;</span>
+            </div>
         </div>
+        <div class="input-group">
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+</div>
+
+       
     </div>
+    <div class="image-container">
+    <img src="https://media.istockphoto.com/id/1186575622/photo/businessman-or-groom-tying-shoe-laces-preparing.jpg?s=612x612&w=0&k=20&c=LOmbkpFDv-WFfUkGzYcCcUqwYxqTz1A3K9SS4xdxW34=" alt="Registration Image">
+    <div class="register-overlay">
+        <h1>New Here?</h1>
+        <p>Enter your personal details and start a journey with us</p>
+        <a href="../pages/register.php">
+            <button>Sign Up</button>
+        </a>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const eyeIcon = document.querySelector('.eye-icon');
+        
+        if (passwordField.type === "password") {
+            passwordField.type = "text"; // Show password
+            eyeIcon.innerHTML = "&#128065;"; // Eye open icon
+        } else {
+            passwordField.type = "password"; // Hide password
+            eyeIcon.innerHTML = "&#128065;"; // Eye closed icon
+        }
+    }
+</script>
+
 
     <!-- Warning Pane -->
     <?php if (!empty($errorMessage)): ?>
