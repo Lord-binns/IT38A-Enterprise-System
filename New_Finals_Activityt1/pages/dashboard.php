@@ -47,6 +47,42 @@
   </div>
 </div>
 
+<!-- Dashboard Heading and Highlight Cards -->
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <!-- Dashboard Heading -->
+        <div class="col-md-4 mb-3">
+            <h1 style="font-weight: 700; font-size: 2.5rem;">📊 Dashboard</h1>
+            <p style="color: #555;">A quick Data overview of the Inventory</p>
+        </div>
+
+        <!-- System Status Card -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-success shadow text-center">
+                <div class="card-body">
+                    <h4 class="card-title">System Status</h4>
+                    <p class="card-text">All systems operational</p>
+                    <i class="fas fa-check-circle fa-2x"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Card -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-warning shadow text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Notifications</h4>
+                    <p class="card-text">3 pending supplier updates</p>
+                    <i class="fas fa-bell fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <!-- Card Container -->
 <div class="container card-container">
     <div class="row">
