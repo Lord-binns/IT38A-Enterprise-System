@@ -49,14 +49,14 @@
 
 <!-- Dashboard Overview Container (Full-width) -->
 <div class="w-100 px-3 mt-4">
-  <div class="card shadow p-4 mx-auto" style="max-width: 0%; background-color: #f0f0f0; border-radius: 12px;">
+  <div class="card shadow p-4 mx-auto" style="max-width: 80%; background-color: #f0f0f0; border-radius: 12px;">
 
     <div class="row align-items-center">
       
       <!-- Dashboard Heading -->
       <div class="col-md-4 mb-3">
-        <h1 style="font-weight: 700; font-size: 2.5rem; color: #333;">📊 Dashboard</h1>
-        <p style="color: #666;">Quick system overview</p>
+        <h1 style="font-weight: 700; font-size: 2.5rem; color: #333;">📊 Welcome Back Admin Binns!</h1>
+        <p style="color: #666;">Admin dashboard quick and organized interface for SmartRetail.</p>
       </div>
 
       <!-- System Status Card -->
