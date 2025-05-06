@@ -47,9 +47,10 @@
   </div>
 </div>
 
-<!-- Dashboard Overview Container -->
-<div class="container mt-4">
-  <div class="card shadow p-4" style="background-color: #f0f0f0; border-radius: 12px;">
+<!-- Dashboard Overview Container (Full-width) -->
+<div class="w-100 px-3 mt-4">
+  <div class="card shadow p-4 mx-auto" style="max-width: 80%; background-color: #f0f0f0; border-radius: 12px;">
+
     <div class="row align-items-center">
       
       <!-- Dashboard Heading -->
