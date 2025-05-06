@@ -14,6 +14,7 @@ body {
 }
 
 .login-container {
+    position: relative;
     display: flex;
     width: 55%;
     max-width: 1000px;
@@ -52,9 +53,9 @@ body {
 
 .register-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to truly center */
     width: 100%;
     text-align: center;
     background: rgba(0, 0, 0, 0.5);
@@ -62,17 +63,14 @@ body {
     box-sizing: border-box;
 }
 
-.register-overlay h1,
-.register-overlay p {
-    color: #fff;
-}
-
 .register-overlay h1 {
+    color: #fff;
     font-size: 28px;
     margin-bottom: 10px;
 }
 
 .register-overlay p {
+    color: #fff;
     font-size: 16px;
     margin-bottom: 20px;
 }
@@ -91,16 +89,9 @@ body {
     background-color: #ff9999;
 }
 
-/* Logo styling */
-.logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-/* Form fields */
 h2 {
     margin-bottom: 20px;
-    color: #000000;
+    color: #000;
     font-size: 28px;
 }
 
@@ -122,27 +113,6 @@ h2 {
     border-radius: 5px;
 }
 
-.password-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.password-container input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.eye-icon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    color: #666;
-}
-
-/* Button Styling */
 .input-group button {
     width: 100%;
     padding: 10px;
@@ -158,7 +128,6 @@ h2 {
     background-color: #962d22;
 }
 
-/* General text styling for links */
 p {
     margin-top: 20px;
     color: #666;
@@ -171,8 +140,8 @@ p a {
 
 p a:hover {
     text-decoration: underline;
+}
 
-/* Warning Pane */
 .warning-pane {
     position: fixed;
     top: 50%;

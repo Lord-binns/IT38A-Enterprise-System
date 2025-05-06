@@ -19,27 +19,20 @@ if (isset($_SESSION['error'])) {
 <div class="login-container">
     <!-- Form goes first -->
     <div class="form-container">
-    <img src="path/to/logo.png" alt="Logo" class="logo"> <!-- Logo at the top -->
-    <h2>Login</h2>
-    <form action="../process/register_process.php" method="POST">
-        <div class="input-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="input-group">
-            <label for="password">Password:</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password" required>
-                <!-- Hide eye icon initially -->
-                <span class="eye-icon" onclick="togglePassword()">&#128065;</span>
+        <h2>Login here</h2>
+        <form action="../process/register_process.php" method="POST">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-        </div>
-        <div class="input-group">
-            <button type="submit">Log In</button>
-        </div>
-    </form>
-</div>
-
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
        
     </div>
     <div class="image-container">
@@ -53,20 +46,6 @@ if (isset($_SESSION['error'])) {
     </div>
 </div>
 
-<script>
-    function togglePassword() {
-        const passwordField = document.getElementById('password');
-        const eyeIcon = document.querySelector('.eye-icon');
-        
-        if (passwordField.type === "password") {
-            passwordField.type = "text"; // Show password
-            eyeIcon.innerHTML = "&#128065;"; // Eye open icon
-        } else {
-            passwordField.type = "password"; // Hide password
-            eyeIcon.innerHTML = "&#128065;"; // Eye closed icon
-        }
-    }
-</script>
 
 
     <!-- Warning Pane -->
