@@ -2,7 +2,7 @@
 $host = "localhost"; // or your host
 $username = "root"; // your MySQL username
 $password = ""; // your MySQL password
-$database = "user_system"; // the database name
+$database = "binns"; // the database name
 
 $conn = new mysqli($host, $username, $password, $database);
 
