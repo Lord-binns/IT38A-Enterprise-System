@@ -25,7 +25,7 @@
 
     <div class="admin-profile">
     <img src="https://i.pinimg.com/736x/4e/ba/de/4ebadeafda17ccd4bb6257b86c9f9c09.jpg" alt="Admin" class="admin-avatar">
-    <p class="admin-name">Admin</p>
+    <p class="admin-name">Admin Profile</p>
 </div>
 <hr>
       <a href="../pages/dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
@@ -41,9 +41,9 @@
       <a href="../pages/user_log.php"><i class="fas fa-user-clock"></i> User Log</a>
     </div>
 
-    <a href="../pages/logout.php" class="logout-link" onclick="confirmLogout(event)">
-      <i class="fas fa-power-off" style="color: red;"></i> Log out
-    </a>
+    <a href="javascript:void(0)" class="logout-link" onclick="showLogoutModal(event)">
+  <i class="fas fa-power-off" style="color: red;"></i> Log out
+</a>
   </div>
 </div>
 
@@ -151,6 +151,28 @@
     </div>
 </div>
 
+
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to log out?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="../pages/logout.php" class="btn btn-danger">Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -159,6 +181,10 @@ function toggleSidebar() {
     } else {
         sidebar.style.width = "300px";
     }
+}
+
+function showLogoutModal() {
+    $('#logoutModal').modal('show');
 }
 </script>
 
