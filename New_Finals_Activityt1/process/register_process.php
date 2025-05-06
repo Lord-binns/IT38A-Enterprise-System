@@ -8,7 +8,7 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // hash the pas
 $role = 'user'; // set default role to 'user'
 
 // Database connection (assumed)
-$conn = new mysqli("localhost", "root", "", "binns");
+$conn = new mysqli("localhost", "root", "", "onlinelibrary");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
