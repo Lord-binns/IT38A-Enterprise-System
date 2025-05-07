@@ -6,7 +6,7 @@
     <title>User Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Ensure Bootstrap is linked -->
-    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/pos.css">
 </head>
 
 <body>
@@ -19,6 +19,12 @@
         <i class="fas fa-bell"></i>
         <span style="font-weight: bold;">Notifications</span>
     </button>
+
+      <!-- Logo Image -->
+      <div class="col-md-6 text-center mb-6">
+        <img src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vNFRfgc4k4wQ7kNvwG7sIP3&_nc_oc=AdnenXQ6F7RZa6oqPUGSoCr3pYTpeMkvNLCaI5yRkoBepw1k8LEZOgSds5HGQ0s2HBQ&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=LH2t53CIHP8ckqbJaF721w&oh=00_AfJiJfrv7l6zsfW78Q7boZjcX6uu1CWfJHRMXGDuMiFcGQ&oe=681F82E8" 
+             alt="Smart_Retail Logo" style="height: 65px; width: 65px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;">
+      </div>
 </div>
 
 <div id="sidebar" class="sidebar">
@@ -58,14 +64,47 @@
         <p style="font-size: 1.5rem;">"Smarter Stores, Happier Customers"</p>
       </div>
 
-      <!-- Logo Image -->
-      <div class="col-md-4 text-center mb-3">
-        <img src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vNFRfgc4k4wQ7kNvwG7sIP3&_nc_oc=AdnenXQ6F7RZa6oqPUGSoCr3pYTpeMkvNLCaI5yRkoBepw1k8LEZOgSds5HGQ0s2HBQ&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=LH2t53CIHP8ckqbJaF721w&oh=00_AfJiJfrv7l6zsfW78Q7boZjcX6uu1CWfJHRMXGDuMiFcGQ&oe=681F82E8" 
-             alt="Smart_Retail Logo" style="height: 200px; width: 200px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;">
-      </div>
+    
     </div>
   </div>
 </div>
+
+
+<!-- Card Container -->
+<div class="container card-container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/5f/e9/14/5fe914ff84aeea70d67609587b2ec38c.gif" class="card-img-top" alt="Image 2">
+                <div class="card-body text-center">
+                    <h3 class="card-title"> Sales Report</h3>
+                    <h5 class="card-text"> </h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/74/fe/58/74fe58b6918fa081662612578de66dc1.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Bussiness Tips</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card about-card">
+                <img src="https://i.pinimg.com/originals/0e/e9/61/0ee961aa770d96ac9d36b22bc28f3e64.gif" class="card-img-top" alt="Team Syn-Tech">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Manage Users</h3>
+                    <h5 class="card-text">  </h5>
+                </div>
+            </div>
+        </div>
+
+
+
+
 
 <!-- Logout Confirmation Card (Initially Hidden) -->
 <div id="logoutCard" class="card" style="max-width: 80%; margin: auto; display: none; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); z-index: 9999;">

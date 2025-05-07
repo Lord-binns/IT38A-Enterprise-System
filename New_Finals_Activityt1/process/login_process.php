@@ -42,7 +42,7 @@ if ($stmt->num_rows > 0) {
 
         // Redirect based on role
         if ($role === 'admin') {
-            header("Location: ../pages/dashboard.php");
+            header("Location: ../admin_pages/dashboard.php");
         } else {
             header("Location: ../pages/user_dashboard.php");
         }
