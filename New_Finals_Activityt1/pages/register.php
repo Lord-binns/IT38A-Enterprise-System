@@ -10,36 +10,42 @@
 
 <div class="login-container">
     <div class="image-container">
-        <img src="https://media3.giphy.com/media/jQQRWxSlW1tWvWigA9/giphy.gif?cid=6c09b952r7l69tlcs27kgxgldm98kn1mzjyqyq6y6sr2c9uy&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" alt="Registration Image">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/219/700/small/table-with-stack-of-stylish-sweaters-and-woman-s-shoes-on-grey-background-generative-ai-photo.jpg" alt="Registration Image">
     </div>
     
     <div class="form-container">
-        <h2>Register Here</h2>
-        <form action="../process/register_process.php" method="POST">
-            <div class="input-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" required>
+    <h2>Create Account</h2>
+    <form action="../process/register_process.php" method="POST">
+        <div class="input-group-row">
+            <div class="input-group-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
             </div>
-            <div class="input-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required>
+            <div class="input-group-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
             </div>
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group-icon password-group">
+            <i class="fas fa-lock"></i>
+            <div class="password-wrapper">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword()">
+                    <i class="fas fa-eye-slash" id="eye-icon"></i>
+                </span>
             </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <!-- Default role will be set to 'user' -->
-            <input type="hidden" name="role" value="user">
-            <div class="input-group">
-                <button type="submit">Register</button>
-            </div>
-        </form>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
-    </div>
+        </div>
+        <!-- Default role will be set to 'user' -->
+        <input type="hidden" name="role" value="user">
+        <div class="input-group">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <p>Already have an account? <a href="login.php">Login here</a></p>
 </div>
 
 </body>

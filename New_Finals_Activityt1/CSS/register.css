@@ -1,80 +1,51 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    height: 100vh;
+.input-group-row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-    background: url('https://img.freepik.com/premium-photo/cliche-library-library-background_115919-34121.jpg') no-repeat center center;
-    background-size: cover; /* Ensures the image covers the entire container */
+    gap: 20px;
+    margin-bottom: 15px;
 }
 
-.login-container {
-    display: flex;
-    max-width: 900px;  /* Control the max width */
-    width: 100%;
-    height: 500px;  /* Control the height of the form */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly opaque background */
-}
-
-.image-container {
-    flex: 1;
-    background-color: #f0f0f0;
-    order: 2; /* Move the image to the right */
-    max-width: 50%; /* Ensure image container doesn't take full width */
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.form-container {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    order: 1; /* Ensure form stays on the left */
-    max-width: 50%; /* Restrict width */
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 24px;  /* Make heading smaller */
-}
-
-.input-group {
-    margin-bottom: 10px; /* Reduce margin to make it tighter */
+.input-group-icon {
+    position: relative;
     width: 100%;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-    font-size: 14px;  /* Smaller label text */
+.input-group-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
 }
 
-.input-group input {
+.input-group-icon input {
     width: 100%;
-    padding: 8px;  /* Reduced padding for smaller inputs */
-    font-size: 14px; /* Smaller font size */
+    padding: 10px 10px 10px 35px; /* Space for icon */
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+}
+
+/* Password field with eye icon */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
 }
 
 .input-group button {
@@ -82,20 +53,65 @@ h2 {
     padding: 10px;
     background-color: #007bff;
     color: white;
-    border: none;
+    border: 2px solid white; /* White border for button */
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 .input-group button:hover {
     background-color: #0056b3;
+    border-color: #e0e0e0; /* Light border on hover */
+}
+
+/* Border between form and image */
+.login-container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-left: 2px solid black; /* Border separating the form and image */
+}
+
+.image-container {
+    flex: 1;
+    background-color: #f0f0f0;
+    order: 2;
+    max-width: 50%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-left: 2px solid black; /* Border for the image side */
+}
+
+.form-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
 }
 
 p {
     margin-top: 20px;
     color: #666;
-    font-size: 14px;  /* Smaller font for paragraph */
+    font-size: 14px;
 }
 
 p a {
@@ -107,19 +123,21 @@ p a:hover {
     text-decoration: underline;
 }
 
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .login-container {
         flex-direction: column;
         padding: 10px;
-        height: auto;  /* Allow form to adjust based on content */
+        height: auto;
     }
 
     .image-container {
         margin-bottom: 20px;
-        max-width: 100%;  /* Allow image to scale fully */
+        max-width: 100%;
+        border-left: none; /* Remove border for small screens */
     }
 
     .form-container {
-        max-width: 100%;  /* Allow form to take up full width on smaller screens */
+        max-width: 100%;
     }
 }
