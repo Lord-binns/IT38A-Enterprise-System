@@ -14,8 +14,9 @@
     <div class="image-container">
        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/219/700/small/table-with-stack-of-stylish-sweaters-and-woman-s-shoes-on-grey-background-generative-ai-photo.jpg" alt="Registration Image">
        <div class="register-overlay">
-            <h1>Welcome!</h1>
-            <p>Already have an account?</p>
+            <h1> Welcome!</h1>
+            <p>To stay connected with us please 
+            log in with your personal info</p>
             <a href="../pages/login.php">
                 <button>Log in</button>
             </a>
@@ -23,7 +24,7 @@
     </div>
     
     <div class="form-container">
-    <h2>Create Account</h2>
+    <h1 style="margin-bottom: 20px;">Create Account</h1>
     <form action="../process/register_process.php" method="POST">
         <div class="input-group-row">
             <div class="input-group-icon">
@@ -48,6 +49,7 @@
                 </span>
             </div>
         </div>
+
 
         <div class="input-group-icon password-group">
     <i class="fas fa-lock"></i>
