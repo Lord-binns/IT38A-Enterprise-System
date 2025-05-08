@@ -54,53 +54,7 @@
   </div>
 </div>
 
-<!-- Dashboard Overview Container (Full-width) -->
-<div class="w-100 px-3 mt-4">
-  <div class="card shadow p-4 mx-auto" style="max-width: 90%; background-color: white; border-radius: 12px; color: #333;">
-    <div class="row align-items-center">
-      <!-- Dashboard Heading -->
-      <div class="col-md-8 mb-3">
-        <h1 style="font-weight: 800; font-size: 3rem; color: red;">🛒 Smart_Retail</h1>
-        <p style="font-size: 1.5rem;">"Smarter Stores, Happier Customers"</p>
-      </div>
 
-    
-    </div>
-  </div>
-</div>
-
-
-<!-- Card Container -->
-<div class="container card-container">
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Image 2">
-                <div class="card-body text-center">
-                    <h3 class="card-title"> Product no. 1</h3>
-                    <h5 class="card-text"> </h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Team Syn-Tech">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Product no. 2</h3>
-                    <h5 class="card-text">  </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Team Syn-Tech">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Product no. 3</h3>
-                    <h5 class="card-text">  </h5>
-                </div>
-            </div>
-        </div>
 
 
 
