@@ -32,7 +32,7 @@
       <hr>
       <a href="../admin_pages/reports.php"><i class="fas fa-chart-bar"></i> Reports</a>
       <hr>
-      <a href="../admin_pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
+      <a href="../admin_pages/inventory.php" style="color: yellow; "><i class="fas fa-boxes"></i> Inventory</a>
       <hr>
       <a href="../admin_pages/suppliers.php"><i class="fas fa-truck"></i> Suppliers</a>
       <hr>

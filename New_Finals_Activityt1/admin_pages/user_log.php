@@ -30,7 +30,7 @@
 <hr>
       <a href="../admin_pages/dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
       <hr>
-      <a href="../admin_pages/reports.php" style="color: yellow;"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="../admin_pages/reports.php" ><i class="fas fa-chart-bar"></i> Reports</a>
       <hr>
       <a href="../admin_pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
       <hr>
@@ -38,7 +38,7 @@
       <hr>
       <a href="../admin_pages/refunds_returns.php"><i class="fas fa-undo"></i> Refunds & Returns</a>
       <hr>
-      <a href="../admin_pages/user_log.php"><i class="fas fa-user-clock"></i> User Log</a>
+      <a href="../admin_pages/user_log.php" style="color: yellow;"><i class="fas fa-user-clock"></i> User Log</a>
     </div>
 
     <a href="javascript:void(0)" class="logout-link" onclick="showLogoutModal(event)">
