@@ -30,7 +30,7 @@
 <hr>
       <a href="../admin_pages/dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
       <hr>
-      <a href="../admin_pages/reports.php"><i class="fas fa-chart-bar"></i> Reports</a>
+      <a href="../admin_pages/reports.php" style="color: yellow;"><i class="fas fa-chart-bar"></i> Reports</a>
       <hr>
       <a href="../admin_pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
       <hr>
@@ -89,20 +89,17 @@
 
 
 <!-- Card Container -->
-<!-- Card Container -->
 <div class="container card-container">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card" onclick="window.location.href='reports.php'" style="cursor: pointer;">
+            <div class="card about-card clickable-card" data-link="reports.php">
                 <img src="https://i.pinimg.com/originals/5f/e9/14/5fe914ff84aeea70d67609587b2ec38c.gif" class="card-img-top" alt="Image 2">
                 <div class="card-body text-center">
                     <h3 class="card-title">Sales Report</h3>
-                    <h5 class="card-text">Detailed report of sales.</h5>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card about-card">
                 <img src="https://i.pinimg.com/originals/74/fe/58/74fe58b6918fa081662612578de66dc1.gif" class="card-img-top" alt="Team Syn-Tech">
@@ -188,6 +185,14 @@ function toggleSidebar() {
 function showLogoutModal() {
     $('#logoutModal').modal('show');
 }
+</script>
+
+<script>
+    document.querySelectorAll('.clickable-card').forEach(card => {
+        card.addEventListener('click', function() {
+            window.location.href = this.getAttribute('data-link');
+        });
+    });
 </script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
