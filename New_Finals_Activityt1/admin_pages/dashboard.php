@@ -89,18 +89,20 @@
 
 
 <!-- Card Container -->
+<!-- Card Container -->
 <div class="container card-container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
+            <div class="card about-card" onclick="window.location.href='reports.php'" style="cursor: pointer;">
                 <img src="https://i.pinimg.com/originals/5f/e9/14/5fe914ff84aeea70d67609587b2ec38c.gif" class="card-img-top" alt="Image 2">
                 <div class="card-body text-center">
-                    <h3 class="card-title"> Sales Report</h3>
-                    <h5 class="card-text"> </h5>
+                    <h3 class="card-title">Sales Report</h3>
+                    <h5 class="card-text">Detailed report of sales.</h5>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card about-card">
                 <img src="https://i.pinimg.com/originals/74/fe/58/74fe58b6918fa081662612578de66dc1.gif" class="card-img-top" alt="Team Syn-Tech">
