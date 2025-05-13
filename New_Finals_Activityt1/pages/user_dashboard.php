@@ -60,7 +60,7 @@
 
       <!-- Logo Image -->
       <div class="col-md-4 text-center mb-3">
-        <img src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vNFRfgc4k4wQ7kNvwG7sIP3&_nc_oc=AdnenXQ6F7RZa6oqPUGSoCr3pYTpeMkvNLCaI5yRkoBepw1k8LEZOgSds5HGQ0s2HBQ&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=LH2t53CIHP8ckqbJaF721w&oh=00_AfJiJfrv7l6zsfW78Q7boZjcX6uu1CWfJHRMXGDuMiFcGQ&oe=681F82E8" 
+        <img src="https://scontent.fcgy1-2.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGh8HtMMvuQzd7S02DkmsEdkyDSnA32ByKTINKcDfYHIh9zsPhpwe_BWEjykOQOS60H-nsVhsmM0A4smOlgK9wV&_nc_ohc=G5e-l6wNY78Q7kNvwGKJByY&_nc_oc=AdmxsIH3jDFu-0PCHaHVJ8ArnY-UshAnVj48Skyd_cUsaQ82B-1nWPwkon-zPV9ckgk&_nc_zt=23&_nc_ht=scontent.fcgy1-2.fna&_nc_gid=TdPmnjT_T4EZEgLlDIe8WA&oh=00_AfJfCFxTVioIWqhF-Z-RWOs5sdUT0_G67SxFlHEOVVIYdA&oe=6828BD68" 
              alt="Smart_Retail Logo" style="height: 200px; width: 200px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;">
       </div>
     </div>

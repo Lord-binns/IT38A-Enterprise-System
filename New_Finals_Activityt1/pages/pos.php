@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>SmartRetail POS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Ensure Bootstrap is linked -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/pos.css">
+    <style>
+        .card-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 20px; 
+            padding: 20px; 
+            margin: 0 auto; 
+            width: 80%; 
+        }
+        .card { 
+            width: 100%; 
+            border: none; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.2s; 
+        }
+
+    </style>
 </head>
 
 <body>
@@ -22,7 +40,7 @@
 
       <!-- Logo Image -->
       <div class="col-md-6 text-center mb-6">
-        <img src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vNFRfgc4k4wQ7kNvwG7sIP3&_nc_oc=AdnenXQ6F7RZa6oqPUGSoCr3pYTpeMkvNLCaI5yRkoBepw1k8LEZOgSds5HGQ0s2HBQ&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=LH2t53CIHP8ckqbJaF721w&oh=00_AfJiJfrv7l6zsfW78Q7boZjcX6uu1CWfJHRMXGDuMiFcGQ&oe=681F82E8" 
+        <img src="https://scontent.fcgy1-2.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGh8HtMMvuQzd7S02DkmsEdkyDSnA32ByKTINKcDfYHIh9zsPhpwe_BWEjykOQOS60H-nsVhsmM0A4smOlgK9wV&_nc_ohc=G5e-l6wNY78Q7kNvwGKJByY&_nc_oc=AdmxsIH3jDFu-0PCHaHVJ8ArnY-UshAnVj48Skyd_cUsaQ82B-1nWPwkon-zPV9ckgk&_nc_zt=23&_nc_ht=scontent.fcgy1-2.fna&_nc_gid=xU2lOYxtOA24eHR9PD2Gtw&oh=00_AfJnOuxPO6GTYukerKemGgZRG8YEqvffuWe3TNelIHpssA&oe=6828BD68" 
              alt="Smart_Retail Logo" style="height: 65px; width: 65px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;">
       </div>
 </div>
@@ -64,84 +82,125 @@
         <p style="font-size: 1.5rem;">"Smarter Stores, Happier Customers"</p>
       </div>
 
-    
+      <!-- Display Panel for Selected Product and Total -->
+      <div class="col-md-4 mb-3 text-right">
+        <div class="form-control" style="height: 150px; overflow-y: auto; background-color: #f8f9fa; border: 1px solid #ddd; padding: 10px;">
+          <h5 style="font-weight: bold;">Smart Retail:</h5>
+          <div id="selectedProductsList" style="font-size: 1rem; color: #333;"></div>
+          <hr>
+          <p style="font-weight: bold;">Total: ₱ <span id="totalDisplay">0.00</span></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<script>
+    // Initialize selected products list and total
+    let selectedProducts = [];
+    let totalAmount = 0;
 
-<!-- Card Container -->
-<div class="container card-container">
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Image 2">
-                <div class="card-body text-center">
-                    <h3 class="card-title"> Product no. 1</h3>
-                    <h5 class="card-text"> </h5>
-                </div>
-            </div>
-        </div>
+    // Function to add a product to the display panel and update total
+    function addToDisplay(productName, productPrice) {
+        // Add product to the selected list
+        selectedProducts.push({ name: productName, price: productPrice });
+        totalAmount += productPrice;
 
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Team Syn-Tech">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Product no. 2</h3>
-                    <h5 class="card-text">  </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card about-card">
-                <img src="" class="card-img-top" alt="Team Syn-Tech">
-                <div class="card-body text-center">
-                    <h3 class="card-title">Product no. 3</h3>
-                    <h5 class="card-text">  </h5>
-                </div>
-            </div>
-        </div>
+        // Display the selected products and update total
+        const selectedProductsList = document.getElementById('selectedProductsList');
+        selectedProductsList.innerHTML = ''; // Clear the list
+
+        selectedProducts.forEach(product => {
+            const productElement = document.createElement('p');
+            productElement.textContent = `${product.name} - ₱${product.price.toFixed(2)}`;
+            selectedProductsList.appendChild(productElement);
+        });
+
+        // Update the total amount displayed
+        document.getElementById('totalDisplay').innerText = totalAmount.toFixed(2);
+    }
+
+    // Fetch Products and Display
+    fetch('../products/products-api.php')
+        .then(response => response.json())
+        .then(data => {
+            const productsContainer = document.getElementById('productsDisplay');
+            productsContainer.innerHTML = ''; // Clear existing products
+
+            data.forEach(product => {
+                const cardHTML = `
+                    <div class="card">
+                        <img class="card-img-top" src="${product.img}" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text">${product.description}</p>
+                            <p class="card-text">Price: ₱${product.rrp}</p>
+                            <button class="btn btn-success" 
+                                    onclick="addToDisplay('${product.title}', ${product.rrp})">
+                                <i class="fas fa-cart-plus"></i> Add to Display
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productsContainer.innerHTML += cardHTML;
+            });
+        })
+        .catch(error => console.error('Error fetching products:', error));
+</script>
+
+
+
+<!-- Product Listing -->
+<div id="productsDisplay" class="card-grid"></div>
 
 
 
 
+<script>
+    // Sidebar Toggle Function
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.width = (sidebar.style.width === "300px") ? "0" : "300px";
+    }
 
-<!-- Logout Confirmation Card (Initially Hidden) -->
-<div id="logoutCard" class="card" style="max-width: 80%; margin: auto; display: none; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); z-index: 9999;">
-    <div class="card-body text-center">
-        <h5 class="card-title">Are you sure you want to log out?</h5>
-        <a href="../pages/logout.php" class="btn btn-danger">Log out</a>
-        <button class="btn btn-secondary" onclick="hideLogoutCard()">Cancel</button>
+    // Fetch Products and Display
+    fetch('../products/products-api.php')
+        .then(response => response.json())
+        .then(data => {
+            const productsContainer = document.getElementById('productsDisplay');
+            productsContainer.innerHTML = ''; // Clear existing products
+
+            data.forEach(product => {
+                const cardHTML = `
+<!-- Updated Product Card in Product Listing -->
+<div class="card">
+    <img class="card-img-top" src="${product.img}" alt="${product.title}">
+    <div class="card-body">
+        <h5 class="card-title">${product.title}</h5>
+        <p class="card-text">${product.description}</p>
+        <p class="card-text">Price: ₱${product.rrp}</p>
+        <button class="btn btn-success" 
+                onclick="addToDisplay('${product.title}', ${product.rrp})">
+            <i class="fas fa-cart-plus"></i> Add to Display
+        </button>
     </div>
 </div>
 
-<script>
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "300px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "300px";
-    }
-}
+                `;
+                productsContainer.innerHTML += cardHTML;
+            });
+        })
+        .catch(error => console.error('Error fetching products:', error));
 
-function showLogoutCard() {
-    document.getElementById('logoutCard').style.display = 'block';
-}
+  
 
-function hideLogoutCard() {
-    document.getElementById('logoutCard').style.display = 'none';
-}
+   
 </script>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<!-- Bootstrap JS (Optional) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-<!-- Popper.js (required for Bootstrap) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-
-<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
