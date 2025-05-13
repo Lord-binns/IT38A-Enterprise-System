@@ -1,0 +1,4 @@
+{"receipt_number":"SR-250513205318","total_amount":199.99,"customer_cash":1000,"change":800.01,"cashier":"User_Name","products":[{"name":"Product 1","qty":1,"unitPrice":199.99,"price":199.99}],"date_time":"5\/13\/2025, 8:53:23 PM"}
+{"receipt_number":"SR-250513205459","total_amount":99.5,"customer_cash":99.5,"change":0,"cashier":"User_Name","products":[{"name":"Product 2","qty":1,"unitPrice":99.5,"price":99.5}],"date_time":"5\/13\/2025, 8:55:18 PM"}
+{"receipt_number":"SR-250513214103","total_amount":49.99,"customer_cash":1200,"change":1150.01,"cashier":"qwe","products":[{"name":"Product 3","price":49.99,"qty":1}],"date_time":"5\/13\/2025, 9:41:10 PM"}
+{"receipt_number":"SR-250513231338","total_amount":49.99,"customer_cash":80,"change":30.009999999999998,"cashier":"mariel","products":[{"name":"Product 3","price":49.99,"qty":1}],"date_time":"5\/13\/2025, 11:13:48 PM"}

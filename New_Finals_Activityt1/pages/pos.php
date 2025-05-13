@@ -1,3 +1,14 @@
+<?php
+// Start session at the beginning
+session_start();
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +25,7 @@
             gap: 20px; 
             padding: 20px; 
             margin: 0 auto; 
-            width: 80%; 
+            width: 60%; 
         }
         .card { 
             width: 100%; 
@@ -74,7 +85,7 @@
 
 <!-- Dashboard Overview Container (Full-width) -->
 <div class="w-100 px-3 mt-4">
-  <div class="card shadow p-4 mx-auto" style="max-width: 90%; background-color: white; border-radius: 12px; color: #333;">
+  <div class="card shadow p-4 mx-auto" style="max-width: 90%; background-color: white; padding-top:-20px; border-radius: 12px; color: #333;">
     <div class="row align-items-center">
       <!-- Dashboard Heading -->
       <div class="col-md-8 mb-3">
@@ -82,43 +93,167 @@
         <p style="font-size: 1.5rem;">"Smarter Stores, Happier Customers"</p>
       </div>
 
-      <!-- Display Panel for Selected Product and Total -->
-      <div class="col-md-4 mb-3 text-right">
-        <div class="form-control" style="height: 150px; overflow-y: auto; background-color: #f8f9fa; border: 1px solid #ddd; padding: 10px;">
-          <h5 style="font-weight: bold;">Smart Retail:</h5>
-          <div id="selectedProductsList" style="font-size: 1rem; color: #333;"></div>
-          <hr>
-          <p style="font-weight: bold;">Total: ₱ <span id="totalDisplay">0.00</span></p>
+<!-- Display Panel for Selected Product and Total -->
+<div class="col-md-4 mb-3 text-right" style="margin-left: -150px;"> 
+    <div class="form-control" style="height: 350px; width: 550px; overflow-y: auto; background-color: #f8f9fa; border: 1px solid #ddd; padding: 10px;">
+        <h5 style="font-weight: bold;">Smart Retail Receipt</h5>
+        <hr style="border-top: 1px dashed #333;">
+
+        <div id="selectedProductsList" style="font-size: 0.9rem; color: #333; text-align: left; padding-left: 10px; font-family: monospace;"></div>
+        <hr style="border-top: 1px dashed #333;">
+        <p style="font-weight: bold;">Total: ₱ <span id="totalDisplay">0.00</span></p>
+        <p style="font-size: 0.7rem; color: #666;">Cash: ₱ <span id="cashDisplay">0.00</span></p>
+        <p style="font-size: 0.7rem; color: #666;">Change: ₱ <span id="changeDisplay">0.00</span></p>
+        <p style="font-size: 0.7rem; color: #666;">Receipt No: <span id="receiptNumber"></span></p>
+        <p style="font-size: 0.7rem; color: #666;">Time: <span id="currentTime"></span></p>
+        <p style="font-size: 0.9rem; color: #666;">Cashier: <span id="loggedInUser">User_Name</span></p>
+        <p style="font-size: 0.9rem; color: #666;">Thank you for shopping! Please come back again!</p>
+         <button class="btn btn-primary mt-2" onclick="proceedPayment()">Proceed</button> 
+       
+    </div>
+</div>
+
+
+
         </div>
+      
       </div>
     </div>
   </div>
 </div>
 
 <script>
-    // Initialize selected products list and total
-    let selectedProducts = [];
-    let totalAmount = 0;
+    // Define the addToDisplay function
+    function addToDisplay(productTitle, productPrice) {
+        // Check if the product already exists in the selected list
+        const existingProduct = selectedProducts.find(product => product.name === productTitle);
 
-    // Function to add a product to the display panel and update total
-    function addToDisplay(productName, productPrice) {
-        // Add product to the selected list
-        selectedProducts.push({ name: productName, price: productPrice });
+        if (existingProduct) {
+            existingProduct.qty += 1; // Increase quantity if it already exists
+        } else {
+            // Add new product to the list
+            selectedProducts.push({
+                name: productTitle,
+                price: productPrice,
+                qty: 1
+            });
+        }
+
+        // Update total amount
         totalAmount += productPrice;
-
-        // Display the selected products and update total
-        const selectedProductsList = document.getElementById('selectedProductsList');
-        selectedProductsList.innerHTML = ''; // Clear the list
-
-        selectedProducts.forEach(product => {
-            const productElement = document.createElement('p');
-            productElement.textContent = `${product.name} - ₱${product.price.toFixed(2)}`;
-            selectedProductsList.appendChild(productElement);
-        });
-
-        // Update the total amount displayed
-        document.getElementById('totalDisplay').innerText = totalAmount.toFixed(2);
+        updateDisplay(); // Call the updateDisplay function to refresh the display
     }
+</script>
+
+<script>
+// Initialize selected products list and total
+// Make loggedInUser global
+let loggedInUser = "Guest";
+
+document.addEventListener("DOMContentLoaded", function() {
+    loggedInUser = "<?= isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?>";
+    document.getElementById('loggedInUser').innerText = loggedInUser;
+});
+
+
+// Initialize selected products list and total
+let selectedProducts = [];
+let totalAmount = 0;
+
+// Function to generate unique receipt number
+function generateReceiptNumber() {
+    const now = new Date();
+    return 'SR-' + now.getFullYear().toString().slice(-2) + 
+           (now.getMonth() + 1).toString().padStart(2, '0') + 
+           now.getDate().toString().padStart(2, '0') + 
+           now.getHours().toString().padStart(2, '0') + 
+           now.getMinutes().toString().padStart(2, '0') + 
+           now.getSeconds().toString().padStart(2, '0');
+}
+
+// Function to update the display
+function updateDisplay() {
+    const selectedProductsList = document.getElementById('selectedProductsList');
+    selectedProductsList.innerHTML = `<pre style="font-family: monospace; white-space: pre;"> QTY   ITEM                          PRICE\n----------------------------------------------</pre>`;
+
+    selectedProducts.forEach(product => {
+        selectedProductsList.innerHTML += `<pre>${product.qty.toString().padEnd(5)} ${product.name.padEnd(28)} ₱${product.price.toFixed(2)}</pre>`;
+    });
+
+    document.getElementById('totalDisplay').innerText = totalAmount.toFixed(2);
+    document.getElementById('currentTime').innerText = new Date().toLocaleString();
+    document.getElementById('receiptNumber').innerText = generateReceiptNumber();
+    document.getElementById('loggedInUser').innerText = loggedInUser; // Use global variable here
+}
+
+// Function for Proceed button
+function proceedPayment() {
+    if (totalAmount === 0) {
+        alert("Please add items to the receipt before proceeding.");
+        return;
+    }
+
+    const customerCash = parseFloat(prompt("Enter Customer Cash Amount:"));
+    if (isNaN(customerCash) || customerCash <= 0) {
+        alert("Invalid cash amount. Please enter a valid number.");
+        return;
+    }
+
+    const change = customerCash - totalAmount;
+    if (change < 0) {
+        alert("Insufficient amount. Please enter enough cash.");
+        return;
+    }
+
+    document.getElementById('cashDisplay').innerText = customerCash.toFixed(2);
+    document.getElementById('changeDisplay').innerText = change.toFixed(2);
+
+    const receiptData = {
+        receipt_number: document.getElementById('receiptNumber').innerText,
+        total_amount: totalAmount,
+        customer_cash: customerCash,
+        change: change,
+        cashier: loggedInUser, // Use the global loggedInUser variable
+        products: selectedProducts,
+        date_time: new Date().toLocaleString()
+    };
+
+    console.log("Receipt Data:", receiptData); // Debugging line
+
+    fetch('../process/receipt-api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(receiptData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Payment Successful! Receipt saved.");
+            resetReceipt();
+        } else {
+            alert("Error saving receipt. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+}
+
+// Function to reset receipt display after payment
+function resetReceipt() {
+    selectedProducts = [];
+    totalAmount = 0;
+    updateDisplay();
+    document.getElementById('cashDisplay').innerText = '0.00';
+    document.getElementById('changeDisplay').innerText = '0.00';
+}
+
+
+
+
 
     // Fetch Products and Display
     fetch('../products/products-api.php')
@@ -148,6 +283,13 @@
         .catch(error => console.error('Error fetching products:', error));
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const loggedInUser = "<?= isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?>";
+    document.getElementById('loggedInUser').innerText = loggedInUser;
+});
+</script>
+
 
 
 <!-- Product Listing -->
@@ -161,6 +303,13 @@
     function toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
         sidebar.style.width = (sidebar.style.width === "300px") ? "0" : "300px";
+    }
+
+    // Show Logout Confirmation and Redirect
+    function showLogoutCard() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "../pages/logout.php"; // Redirect to your logout page
+        }
     }
 
     // Fetch Products and Display
@@ -181,7 +330,7 @@
         <p class="card-text">Price: ₱${product.rrp}</p>
         <button class="btn btn-success" 
                 onclick="addToDisplay('${product.title}', ${product.rrp})">
-            <i class="fas fa-cart-plus"></i> Add to Display
+            <i class="fas fa-cart-plus"></i> Proceed to buy
         </button>
     </div>
 </div>

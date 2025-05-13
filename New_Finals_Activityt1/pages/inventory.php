@@ -1,101 +1,161 @@
+<?php
+// Start session at the beginning
+session_start();
+
+// Redirect to login if not logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+    exit();
+}
+
+// Inline PDO Database connection (without affecting other pages)
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=binns;charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+// Fetch products from the database
+$query = "SELECT * FROM products";
+$stmt = $pdo->query($query);
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>SmartRetail Inventory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Ensure Bootstrap is linked -->
-    <link rel="stylesheet" href="../CSS/pos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/inventory.css">
+    <style>
+        .table-container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 10px;
+        }
+
+        .qty-high { background-color: #28a745; color: white; }
+        .qty-medium { background-color: #ffc107; color: white; }
+        .qty-low { background-color: #dc3545; color: white; }
+
+        .product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
+<!-- Top Navigation Bar -->
 <div class="top-bar">
     <button class="open-btn" onclick="toggleSidebar()">☰ Menu</button>
     <input type="text" class="search-input" placeholder="Search...">
-
-    <!-- Notification Button -->
     <button class="open-btn" style="display: flex; align-items: center; gap: 6px; background-color:rgb(2, 2, 1); color: white;">
         <i class="fas fa-bell"></i>
         <span style="font-weight: bold;">Notifications</span>
     </button>
-
-      <!-- Logo Image -->
-      <div class="col-md-6 text-center mb-6">
-        <img src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/495575465_1851078032345688_8325333469187138347_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vNFRfgc4k4wQ7kNvwG7sIP3&_nc_oc=AdnenXQ6F7RZa6oqPUGSoCr3pYTpeMkvNLCaI5yRkoBepw1k8LEZOgSds5HGQ0s2HBQ&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=LH2t53CIHP8ckqbJaF721w&oh=00_AfJiJfrv7l6zsfW78Q7boZjcX6uu1CWfJHRMXGDuMiFcGQ&oe=681F82E8" 
-             alt="Smart_Retail Logo" style="height: 65px; width: 65px; object-fit: cover; border-radius: 50%; border: 3px solid #ddd;">
-      </div>
 </div>
 
+<!-- Sidebar Navigation -->
 <div id="sidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">×</a>
-
-  <div class="sidebar-content">
-    <div class="sidebar-links">
-    <div class="admin-profile">
-        <img src="https://i.pinimg.com/736x/c0/a8/2a/c0a82a54db981757a94b1180b2e83a5d.jpg" alt="Admin" class="admin-avatar">
-        <p class="admin-name">User Profile</p>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">×</a>
+    <div class="sidebar-content">
+        <div class="admin-profile">
+            <img src="https://i.pinimg.com/736x/c0/a8/2a/c0a82a54db981757a94b1180b2e83a5d.jpg" alt="Admin" class="admin-avatar">
+            <p class="admin-name">User Profile</p>
+        </div>
+        <hr>
+        <a href="../pages/user_dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="../pages/pos.php"><i class="fas fa-cash-register"></i> Point of Sales</a>
+        <a href="../pages/reports.php"><i class="fas fa-chart-bar"></i> Reports</a>
+        <a href="../pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
+        <a href="../pages/refunds_returns.php"><i class="fas fa-undo"></i> Refunds & Returns</a>
+        <hr>
+        <a href="javascript:void(0)" class="logout-link" onclick="showLogoutCard()">
+            <i class="fas fa-power-off" style="color: red;"></i> Log out
+        </a>
     </div>
-    <hr>
-      <a href="../pages/user_dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-      <hr>
-      <a href="../pages/pos.php"><i class="fas fa-cash-register"></i> Point of Sales</a>
-      <hr>
-      <a href="../pages/reports.php"><i class="fas fa-chart-bar"></i> Reports</a>
-      <hr>
-      <a href="../pages/inventory.php"><i class="fas fa-boxes"></i> Inventory</a>
-      <hr>
-      <a href="../pages/refunds_returns.php"><i class="fas fa-undo"></i> Refunds & Returns</a>
-    </div>
-
-    <a href="javascript:void(0)" class="logout-link" onclick="showLogoutCard()">
-      <i class="fas fa-power-off" style="color: red;"></i> Log out
-    </a>
-  </div>
 </div>
 
-
-
-
-
-
-
-<!-- Logout Confirmation Card (Initially Hidden) -->
-<div id="logoutCard" class="card" style="max-width: 80%; margin: auto; display: none; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); z-index: 9999;">
-    <div class="card-body text-center">
-        <h5 class="card-title">Are you sure you want to log out?</h5>
-        <a href="../pages/logout.php" class="btn btn-danger">Log out</a>
-        <button class="btn btn-secondary" onclick="hideLogoutCard()">Cancel</button>
+<!-- Inventory Management Table -->
+<div class="table-container">
+    <div class="card p-4 inventory-card-unique">
+        <h3 class="text-center mb-4">Inventory Management</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Price (₱)</th>
+                        <th>Category</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($products as $product): 
+                        $quantityClass = ($product['stock_quantity'] > 100) ? 'qty-high' : 
+                                         (($product['stock_quantity'] >= 50) ? 'qty-medium' : 'qty-low');
+                    ?>
+                    <tr>
+                        <td><?= $product['products_id'] ?></td>
+                        <td>
+                            <img src="<?= !empty($product['img']) ? htmlspecialchars($product['img']) : '../images/default.jpg' ?>" 
+                                 alt="Product Image" 
+                                 class="product-img">
+                        </td>
+                        <td><?= htmlspecialchars($product['title']) ?></td>
+                        <td><?= htmlspecialchars($product['description']) ?></td>
+                        <td>₱<?= number_format($product['rrp'], 2) ?></td>
+                        <td><?= htmlspecialchars($product['category']) ?></td>
+                        <td><?= $product['created_at'] ?></td>
+                        <td><?= $product['updated_at'] ?></td>
+                        <td>
+                            <button class="btn stock-indicator <?= $quantityClass ?>">
+                                <?= $product['stock_quantity'] ?>
+                            </button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <script>
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "300px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "300px";
+    // Sidebar Toggle Function
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.width = (sidebar.style.width === "300px") ? "0" : "300px";
     }
-}
 
-function showLogoutCard() {
-    document.getElementById('logoutCard').style.display = 'block';
-}
-
-function hideLogoutCard() {
-    document.getElementById('logoutCard').style.display = 'none';
-}
+    // Logout Confirmation
+    function showLogoutCard() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "../pages/logout.php";
+        }
+    }
 </script>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-<!-- Popper.js (required for Bootstrap) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-
-<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>
